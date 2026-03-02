@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca CEP - Consulta de Endereço</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Busca CEP</h1>
+            <p>Consulte endereços através do CEP</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <label for="cep">Digite o CEP:</label>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="cep" 
+                        placeholder="00000-000"
+                        maxlength="9"
+                        pattern="\d{5}-?\d{3}"
+                    >
+                    <button id="btnBuscar" class="btn-primary">Buscar</button>
+                </div>
+                <small>Formato: 00000-000</small>
+            </div>
+
+            <div class="result-box" id="resultBox">
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Buscando endereço...</p>
+                </div>
+
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <p>❌ Erro ao buscar o CEP. Verifique o número e tente novamente.</p>
+                </div>
+
+                <div class="address-info" id="addressInfo" style="display: none;">
+                    <h2>📋 Dados do Endereço</h2>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">CEP:</span>
+                            <span class="value" id="infoCep">-</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Logradouro:</span>
+                            <span class="value" id="infoLogradouro">-</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Bairro:</span>
+                            <span class="value" id="infoBairro">-</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Cidade:</span>
+                            <span class="value" id="infoCidade">-</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Estado:</span>
+                            <span class="value" id="infoEstado">-</span>
+                        </div>
+                    </div>
+
+                    <div class="complement-info" id="complementInfo">
+                        <p><small>*Dados fornecidos pela API ViaCEP</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-searches" id="recentSearches">
+                <h3>📌 Consultas Recentes</h3>
+                <div id="recentList"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desenvolvido para atividade acadêmica</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
